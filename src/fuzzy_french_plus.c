@@ -49,9 +49,9 @@ static TheTime new_time;
 static bool busy_animating_in = false;
 static bool busy_animating_out = false;
 const int line1_y = 8;
-const int line2_y = 78;
-const int line3_y = 117;
-const int line4_y = 43;
+const int line2_y = 43;
+const int line3_y = 78;
+const int line4_y = 117;
 
 
 
