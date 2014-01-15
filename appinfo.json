@@ -1,0 +1,29 @@
+{
+    "versionLabel": "2.0",
+    "uuid": "08ef49a3-9232-46a7-a476-88a92aec20e1",
+    "appKeys": {},
+    "longName": "Fuzzy Time en Fran\u00e7ais",
+    "versionCode": 2,
+    "capabilities": [
+        ""
+    ],
+    "shortName": "Fuzzy Time",
+    "companyName": "benoit2600",
+    "watchapp": {
+        "watchface": true
+    },
+    "resources": {
+        "media": [
+            {
+                "type": "raw",
+                "name": "DUMMY",
+                "file": "data/resource_map.json"
+            },
+            {
+                "type": "png",
+                "name": "IMAGE_MENU_ICON",
+                "file": "images/menu_icon.png"
+            }
+        ]
+    }
+}
