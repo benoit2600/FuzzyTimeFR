@@ -1,13 +1,18 @@
 {
-    "versionLabel": "2.0",
-    "uuid": "08ef49a3-9232-46a7-a476-88a92aec20e1",
-    "appKeys": {},
+    "versionLabel": "2.2",
+    "uuid": "08ef49a3-9232-46a7-a476-88a92aec20e2",
+    "appKeys": {
+        "CminutePrecise": 0,
+        "Ctopbar": 3,
+        "Ccouleur": 1,
+        "Cbatterie": 2
+    },
     "longName": "Fuzzy Time en Fran\u00e7ais",
     "versionCode": 2,
     "capabilities": [
-        ""
+        "configurable"
     ],
-    "shortName": "Fuzzy Time",
+    "shortName": "Fuzzy Time 2",
     "companyName": "benoit2600",
     "watchapp": {
         "watchface": true
