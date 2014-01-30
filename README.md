@@ -8,9 +8,9 @@ The number of line is automagically adapted in fonction of the text to show (3 l
 
 You can personnalize the watch with somes options :
 - Precise Minute : show the real minute in the upper right corner.
--Color : you can invert the color (like the 3rd picture).
--Battery : you can show the battery of the watch in the upper left corner
--Date : you can show/hide the date
+- Color : you can invert the color (like the 3rd picture).
+- Battery : you can show the battery of the watch in the upper left corner
+- Date : you can show/hide the date
 
 Known bugs :
 - Your configuration might take times to show up.
