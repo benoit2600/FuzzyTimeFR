@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Fuzzy Time FR v2.0</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/bootstrap-theme.min.css" rel="stylesheet">
+
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+
+			<h2>Fuzzy Time FR v2.0</h2>
+      
+      <form id="configure-form" class="form-configure well" action="#" method="POST">
+        <h4>Minute precise</h4>
+        <p><small>Affiche les minutes en haut a droite.</small></p>
+        <div class="btn-group" data-toggle="buttons">
+          <label class="btn btn-primary">
+            <input type="radio" name="CminutePrecise" id="CminutePrecise1" value="1"> Yes
+          </label>
+          <label class="btn btn-primary">
+            <input type="radio" name="CminutePrecise" id="CminutePrecise2" value="0"> No
+          </label>
+        </div>
+        <hr />
+        <h4>couleur</h4>
+        <p><small>inverse les couleurs</small></p>
+        <div class="btn-group" data-toggle="buttons">
+          <label class="btn btn-primary">
+            <input type="radio" name="Ccouleur" id="Ccouleur1" value="1"> Yes
+          </label>
+          <label class="btn btn-primary">
+            <input type="radio" name="Ccouleur" id="Ccouleur2" value="0"> No
+          </label>
+        </div>
+        <hr />
+        <h4>batterie</h4>
+        <p><small>Affiche la batterie de la montre en haut a gauche.</small></p>
+        <div class="btn-group" data-toggle="buttons">
+          <label class="btn btn-primary">
+            <input type="radio" name="Cbatterie" id="Cbatterie1" value="1"> Yes
+          </label>
+          <label class="btn btn-primary">
+            <input type="radio" name="Cbatterie" id="Cbatterie2" value="0"> No
+          </label>
+        </div>
+        <hr />
+        <h4>date</h4>
+        <p><small>Affiche la Date.</small></p>
+        <div class="btn-group" data-toggle="buttons">
+          <label class="btn btn-primary">
+            <input type="radio" name="Ctopbar" id="Ctopbar1" value="1"> Yes
+          </label>
+          <label class="btn btn-primary">
+            <input type="radio" name="Ctopbar" id="Ctopbar2" value="0"> No
+          </label>
+        </div>
+        <hr />
+        <div class="clearfix">
+          <input class="btn btn-lg btn-primary btn-block" id="save" type="submit" value="Save"/>
+        </div>
+      </form>
+	  </div>
+
+    <div class="footer container">
+    	<p>Fuzzy Time FR 2.0 modified by benoit2600</a></p>
+    </div>
+    
+    <script>
+      var mMinutePrecise;
+      var mCouleur;
+      var mBatterie;
+      var mTopbar;
+      
+      $().ready(function () {
+
+        mMinutePrecise = parseInt(localStorage.getItem("CminutePrecise"));      
+        mCouleur = parseInt(localStorage.getItem("Ccouleur"));
+        mBatterie = parseInt(localStorage.getItem("Cbatterie"));
+        mTopbar = parseInt(localStorage.getItem("Ctopbar"));
+
+        if(isNaN(mMinutePrecise)) {
+          mMinutePrecise = 1;
+        }
+        if(isNaN(mCouleur)) {
+          mCouleur = 0;
+        }
+        if(isNaN(mBatterie)) {
+          mBatterie = 0;
+        }
+        if(isNaN(mTopbar)) {
+          mTopbar = 0;
+        }        
+        
+        
+        if(mMinutePrecise) {
+          $('#CminutePrecise1').prop('checked', true);
+          $('#CminutePrecise1').parent().addClass('active');
+          
+          $('#CminutePrecise2').prop('checked', false);
+          $('#CminutePrecise2').parent().removeClass('active');
+        } 
+        else {
+          $('#CminutePrecise1').prop('checked', false);
+          $('#CminutePrecise1').parent().removeClass('active');
+          
+          $('#CminutePrecise2').prop('checked', true);
+          $('#CminutePrecise2').parent().addClass('active'); 
+        }
+        
+        if(mCouleur) {
+          $('#Ccouleur1').prop('checked', true);
+          $('#Ccouleur1').parent().addClass('active');
+          
+          $('#Ccouleur2').prop('checked', false);
+          $('#Ccouleur2').parent().removeClass('active');
+        } 
+        else {
+          $('#Ccouleur1').prop('checked', false);
+          $('#Ccouleur1').parent().removeClass('active');
+          
+          $('#Ccouleur2').prop('checked', true);
+          $('#Ccouleur2').parent().addClass('active'); 
+        }
+        
+        
+        if(mBatterie) {
+          $('#Cbatterie1').prop('checked', true);
+          $('#Cbatterie1').parent().addClass('active');
+          
+          $('#Cbatterie2').prop('checked', false);
+          $('#Cbatterie2').parent().removeClass('active');
+        } 
+        else {
+          $('#Cbatterie1').prop('checked', false);
+          $('#Cbatterie1').parent().removeClass('active');
+          
+          $('#Cbatterie2').prop('checked', true);
+          $('#Cbatterie2').parent().addClass('active'); 
+        }
+        
+        
+        if(mTopbar) {
+          $('#Ctopbar1').prop('checked', true);
+          $('#Ctopbar1').parent().addClass('active');
+          
+          $('#Ctopbar2').prop('checked', false);
+          $('#Ctopbar2').parent().removeClass('active');
+        } 
+        else {
+          $('#Ctopbar1').prop('checked', false);
+          $('#Ctopbar1').parent().removeClass('active');
+          
+          $('#Ctopbar2').prop('checked', true);
+          $('#Ctopbar2').parent().addClass('active'); 
+        }
+
+      });
+
+      $("#configure-form").submit(function(e) {  
+
+        mMinutePrecise = $('#CminutePrecise1').prop('checked') ? 1 : 0;
+        mCouleur = $('#Ccouleur1').prop('checked') ? 1 : 0;
+        mBatterie = $('#Cbatterie1').prop('checked') ? 1 : 0;
+        mTopbar = $('#Ctopbar1').prop('checked') ? 1 : 0;
+
+        localStorage.setItem("CminutePrecise", mMinutePrecise);  
+        localStorage.setItem("Ccouleur", mCouleur); 
+        localStorage.setItem("Cbatterie", mBatterie); 
+        localStorage.setItem("Ctopbar", mTopbar); 
+        
+        var j = {
+          CminutePrecise : parseInt(mMinutePrecise),
+          Ccouleur : parseInt(mCouleur),
+          Cbatterie : parseInt(mBatterie),
+          Ctopbar: parseInt(mTopbar)
+        };
+        
+        window.location.href = "pebblejs://close#" + JSON.stringify(j);
+
+        e.preventDefault();
+      });
+  </script>
+</body>
+</html>
