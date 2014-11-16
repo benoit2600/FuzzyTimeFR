@@ -2,13 +2,13 @@
 var mConfig = {};
 
 Pebble.addEventListener("ready", function(e) {
-        console.log("fuzzy v2.0 is ready");
+       // console.log("fuzzy v2.0 is ready");
   loadLocalData();
   returnConfigToPebble();
 });
 
 Pebble.addEventListener("showConfiguration", function(e) {
-		console.log("ouverture URL");
+		//console.log("ouverture URL");
         Pebble.openURL(mConfig.configureUrl);
 	
 });
@@ -25,7 +25,7 @@ Pebble.addEventListener("webviewclosed",
 
 function saveLocalData(config) {
 
-  console.log("saveLocalData() " + JSON.stringify(config));
+  //console.log("saveLocalData() " + JSON.stringify(config));
 
   localStorage.setItem("CminutePrecise", parseInt(config.CminutePrecise));  
   localStorage.setItem("Ccouleur", parseInt(config.Ccouleur)); 
@@ -43,10 +43,10 @@ function loadLocalData() {
   mConfig.Ctopbar = parseInt(localStorage.getItem("Ctopbar"));
   mConfig.configureUrl = "http://benoit2600.url.ph/index.html";
 
-  console.log("loadLocalData() " + JSON.stringify(mConfig));
+  //console.log("loadLocalData() " + JSON.stringify(mConfig));
 }
 function returnConfigToPebble() {
-  console.log("Configuration window returned: " + JSON.stringify(mConfig));
+  //console.log("Configuration window returned: " + JSON.stringify(mConfig));
   Pebble.sendAppMessage({
     "CminutePrecise":parseInt(mConfig.CminutePrecise), 
     "Ccouleur":parseInt(mConfig.Ccouleur), 

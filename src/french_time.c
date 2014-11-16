@@ -16,11 +16,16 @@ static const char* const JOURS[] = {
 static const char* const MOIS[] = {
 	"Jan.","Fév.","Mars","Avril","Mai","Juin","Juil.","Août","Sep.","Oct.","Nov.","Déc."};
 
-int fuzzy_time(char* line1, char* line2, char* line3, char* line4, struct tm * t) {
+int fuzzy_time(TheTime * timeStr, struct tm * t) {
+	char * line1 = timeStr->lineStr[0];
+	char * line2 = timeStr->lineStr[1];
+	char * line3 = timeStr->lineStr[2];
+	char * line4 = timeStr->lineStr[3];
 
 	int hours = t->tm_hour;
 	int minutes = t->tm_min;
 	int nbLine = 3;
+	
 	strncpy(line1, "",LINE_BUFFER_SIZE -1);
 	strncpy(line2, "",LINE_BUFFER_SIZE -1);
 	strncpy(line3, "",LINE_BUFFER_SIZE -1);
@@ -78,17 +83,19 @@ int fuzzy_time(char* line1, char* line2, char* line3, char* line4, struct tm * t
 	else if (minutes < 58) strcat(line3, MINS[1]); // moins cinq
 	else if (minutes >= 58) strncpy(line3, MINS[7],LINE_BUFFER_SIZE -1); // presque (ici environ)
 
-	
 	if (hours == 4){
-		nbLine = 4;
+		strncpy(line1, HEURES[4],LINE_BUFFER_SIZE -1);
+
 		strncpy(line2, STR_HEURE,LINE_BUFFER_SIZE -1);
 		if (minutes >= 33 && minutes < 38) // moins vingt cinq
 		{
+			nbLine = 4;
 			strncpy(line3, MINS[8],LINE_BUFFER_SIZE -1); // -- vingt
 			strncpy(line4, MINS[1],LINE_BUFFER_SIZE -1); // cinq
 		}
 		else if (minutes >= 38 && minutes < 58)
 		{
+			nbLine = 4;
 			strncpy(line3, STR_MOINS,LINE_BUFFER_SIZE -1);
 			if (minutes < 43) strcat(line4, MINS[4]); // moins vingt
 			else if (minutes < 48) strncpy(line4, MINS[6],LINE_BUFFER_SIZE -1); // moins le quart
@@ -123,3 +130,4 @@ void majMinute(char * str, struct tm * t){
 	//strcpy(str, "a");
 	snprintf(str, 3, "%d", t->tm_min);
 }
+
